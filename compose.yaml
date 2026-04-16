@@ -1,0 +1,13 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: birthday-site
+    restart: unless-stopped
+    ports:
+      - "${BIRTHDAY_PORT:-80}:8000"
+    volumes:
+      - ./data:/app/data
+      - ./app/static/uploads:/app/app/static/uploads
+      - ./app/static/audio:/app/app/static/audio
