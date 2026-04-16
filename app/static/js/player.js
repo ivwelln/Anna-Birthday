@@ -77,7 +77,7 @@ async function initBirthdayPlayer() {
 
     isTransitioning = false;
     if (index < slides.length - 1) {
-      await delay(1800);
+      await delay((slide.continue_delay_seconds || 2) * 1000);
       if (token === activeToken) {
         showContinueButton(continueButton, slide.button_text || "Продолжить");
       }
@@ -98,6 +98,7 @@ function buildSlideFrame(slide) {
 
   const textStack = document.createElement("div");
   textStack.className = "text-stack";
+  textStack.style.gap = `${resolveTextGap(slide.text_gap)}px`;
 
   const imageStack = document.createElement("div");
   imageStack.className = "image-stack";
@@ -267,7 +268,9 @@ function getTypingSpeed(length) {
 
 function showContinueButton(button, label) {
   window.clearTimeout(button.hideTimerId);
-  button.textContent = label;
+  const normalizedLabel = (label || "Продолжить").trim() || "Продолжить";
+  button.textContent = normalizedLabel;
+  button.classList.toggle("emoji-only", isEmojiOnlyLabel(normalizedLabel));
   button.classList.remove("hidden");
   requestAnimationFrame(() => {
     button.classList.add("visible");
@@ -276,6 +279,7 @@ function showContinueButton(button, label) {
 
 function hideContinueButton(button) {
   window.clearTimeout(button.hideTimerId);
+  button.classList.remove("emoji-only");
   button.classList.remove("visible");
   button.hideTimerId = window.setTimeout(() => {
     button.classList.add("hidden");
@@ -328,4 +332,36 @@ function initAudio(audio, button) {
 
 function delay(ms) {
   return new Promise((resolve) => window.setTimeout(resolve, ms));
+}
+
+function resolveTextGap(value) {
+  const parsed = Number(value);
+  if (Number.isNaN(parsed)) {
+    return 12;
+  }
+  return Math.min(80, Math.max(0, parsed));
+}
+
+function isEmojiOnlyLabel(label) {
+  const normalized = label.trim();
+  if (!normalized) {
+    return false;
+  }
+
+  const graphemes = splitGraphemes(normalized);
+  if (graphemes.length !== 1) {
+    return false;
+  }
+
+  return /[\p{Extended_Pictographic}\p{Regional_Indicator}]/u.test(normalized)
+    || normalized.includes("\u200D")
+    || normalized.includes("\uFE0F");
+}
+
+function splitGraphemes(text) {
+  if (typeof Intl !== "undefined" && Intl.Segmenter) {
+    const segmenter = new Intl.Segmenter(undefined, { granularity: "grapheme" });
+    return Array.from(segmenter.segment(text), ({ segment }) => segment);
+  }
+  return Array.from(text);
 }

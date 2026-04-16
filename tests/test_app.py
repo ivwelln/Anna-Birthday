@@ -45,7 +45,9 @@ def test_content_roundtrip(tmp_path: Path) -> None:
             {
                 "id": "slide1",
                 "button_text": "Дальше",
+                "continue_delay_seconds": 3,
                 "layout": "text-top",
+                "text_gap": 24,
                 "text_blocks": [
                     {
                         "id": "text1",
@@ -66,3 +68,5 @@ def test_content_roundtrip(tmp_path: Path) -> None:
     assert save_response.status_code == 200
     assert get_response.status_code == 200
     assert get_response.json()["slides"][0]["button_text"] == "Дальше"
+    assert get_response.json()["slides"][0]["continue_delay_seconds"] == 3
+    assert get_response.json()["slides"][0]["text_gap"] == 24

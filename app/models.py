@@ -29,7 +29,9 @@ class ImageBlock(BaseModel):
 class Slide(BaseModel):
     id: str = Field(default_factory=generate_id)
     button_text: str = Field(default="Продолжить", max_length=60)
+    continue_delay_seconds: int = Field(default=2, ge=1, le=3)
     layout: Literal["text-top", "images-top", "text-left", "images-left"] = "text-top"
+    text_gap: int = Field(default=12, ge=0, le=80)
     text_blocks: list[TextBlock] = Field(default_factory=list)
     image_blocks: list[ImageBlock] = Field(default_factory=list)
 

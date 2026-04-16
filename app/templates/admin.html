@@ -64,6 +64,22 @@
             <input type="text" data-field="button_text" maxlength="60" placeholder="Продолжить" />
           </div>
 
+          <div class="inline-grid">
+            <div class="field-group">
+              <label>Задержка до кнопки</label>
+              <select data-field="continue_delay_seconds">
+                <option value="1">1 секунда</option>
+                <option value="2">2 секунды</option>
+                <option value="3">3 секунды</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label>Отступ между текстами (px)</label>
+              <input type="number" data-field="text_gap" min="0" max="80" />
+            </div>
+          </div>
+
           <div class="field-group">
             <label>Расположение текста и изображений</label>
             <select data-field="layout">

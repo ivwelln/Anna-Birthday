@@ -200,7 +200,7 @@ async function initAdmin() {
     }
 
     if (!event.target.dataset.scope) {
-      slide[field] = event.target.value;
+      slide[field] = parseEditorValue(field, event.target.value);
       updatePreview(slideCard, slide);
       markDirty("Настройки слайда изменены.");
       return true;
@@ -260,6 +260,12 @@ async function initAdmin() {
       const buttonInput = fragment.querySelector('[data-field="button_text"]');
       buttonInput.value = slide.button_text;
 
+      const delaySelect = fragment.querySelector('[data-field="continue_delay_seconds"]');
+      delaySelect.value = String(slide.continue_delay_seconds);
+
+      const textGapInput = fragment.querySelector('[data-field="text_gap"]');
+      textGapInput.value = String(slide.text_gap);
+
       const layoutSelect = fragment.querySelector('[data-field="layout"]');
       layoutSelect.value = slide.layout;
 
@@ -293,6 +299,7 @@ async function initAdmin() {
 
     const texts = document.createElement("div");
     texts.className = "preview-texts";
+    texts.style.gap = `${slide.text_gap}px`;
     const visibleTexts = slide.text_blocks.filter((item) => item.content && item.content.trim());
 
     if (!visibleTexts.length) {
@@ -552,12 +559,24 @@ function swapItems(items, fromIndex, toIndex) {
 }
 
 function parseEditorValue(field, value) {
-  if (field === "font_size" || field === "width_percent" || field === "max_height") {
+  if (
+    field === "font_size"
+    || field === "width_percent"
+    || field === "max_height"
+    || field === "continue_delay_seconds"
+    || field === "text_gap"
+  ) {
     if (field === "font_size") {
       return clampNumber(value, 16, 96, 34);
     }
     if (field === "width_percent") {
       return clampNumber(value, 12, 100, 28);
+    }
+    if (field === "continue_delay_seconds") {
+      return clampNumber(value, 1, 3, 2);
+    }
+    if (field === "text_gap") {
+      return clampNumber(value, 0, 80, 12);
     }
     return clampNumber(value, 80, 420, 220);
   }
@@ -568,7 +587,9 @@ function normalizeSlide(slide) {
   return {
     id: slide.id || makeId(),
     button_text: slide.button_text || "Продолжить",
+    continue_delay_seconds: clampNumber(slide.continue_delay_seconds, 1, 3, 2),
     layout: slide.layout || "text-top",
+    text_gap: clampNumber(slide.text_gap, 0, 80, 12),
     text_blocks: Array.isArray(slide.text_blocks) ? slide.text_blocks.map(normalizeTextBlock) : [],
     image_blocks: Array.isArray(slide.image_blocks) ? slide.image_blocks.map(normalizeImageBlock) : [],
   };
@@ -598,7 +619,9 @@ function createDefaultSlide() {
   return {
     id: makeId(),
     button_text: "Продолжить",
+    continue_delay_seconds: 2,
     layout: "text-top",
+    text_gap: 12,
     text_blocks: [createDefaultTextBlock()],
     image_blocks: [],
   };

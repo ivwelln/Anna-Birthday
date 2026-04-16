@@ -309,6 +309,16 @@ select {
   transform: translateY(0);
 }
 
+.continue-button.emoji-only {
+  min-width: 72px;
+  width: auto;
+  padding: 10px 18px 12px;
+  font-size: clamp(1.85rem, 8vw, 2.8rem);
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .continue-button.visible {
   opacity: 1;
   pointer-events: auto;
@@ -495,5 +505,9 @@ select {
 
   .continue-button {
     width: min(100%, 320px);
+  }
+
+  .continue-button.emoji-only {
+    width: auto;
   }
 }
