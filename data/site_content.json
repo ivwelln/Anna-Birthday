@@ -1,0 +1,203 @@
+{
+  "slides": [
+    {
+      "id": "519aae2cd7bb4e8284f05702a94d296b",
+      "button_text": "Ну привет.. ",
+      "layout": "text-top",
+      "text_blocks": [
+        {
+          "id": "2d58d90dedbd4d5b927d7d82d6dbfa14",
+          "content": "Привет, Аня",
+          "color": "#e392fe",
+          "font_size": 80,
+          "align": "center"
+        },
+        {
+          "id": "599155ceafed474f9a483afd1f7f0203",
+          "content": "У нас для тебя кое-что есть... ",
+          "color": "#ffffff",
+          "font_size": 50,
+          "align": "center"
+        }
+      ],
+      "image_blocks": []
+    },
+    {
+      "id": "fd6d855dcc1647eca98ba679cce1b74f",
+      "button_text": "Удивите",
+      "layout": "text-top",
+      "text_blocks": [
+        {
+          "id": "3bb18fe257d64115845defc1a6147edc",
+          "content": "Дело в том, ",
+          "color": "#ffffff",
+          "font_size": 48,
+          "align": "center"
+        },
+        {
+          "id": "93373a8a292540ac976c00bce562acba",
+          "content": "Что мы тебя очень любим..",
+          "color": "#ffffff",
+          "font_size": 48,
+          "align": "center"
+        },
+        {
+          "id": "fd30006776ea404a83480704dbadd73c",
+          "content": "Но не знаем, ",
+          "color": "#ffffff",
+          "font_size": 48,
+          "align": "center"
+        },
+        {
+          "id": "4b15f79e5fb4468e85de1a316bad0845",
+          "content": "как тебе это правильно сказать.",
+          "color": "#ffffff",
+          "font_size": 48,
+          "align": "center"
+        },
+        {
+          "id": "7585b257758745d8af13a2eaa2b981af",
+          "content": "Но мы можем показать",
+          "color": "#ffb3d4",
+          "font_size": 80,
+          "align": "center"
+        }
+      ],
+      "image_blocks": []
+    },
+    {
+      "id": "d84f8114d5d54f6c864cc93144e015aa",
+      "button_text": "Окей...",
+      "layout": "text-top",
+      "text_blocks": [
+        {
+          "id": "57e286cf2e1d4a4fa05d273b08c34f86",
+          "content": "Сначала, позволь задать пару вопросов",
+          "color": "#ffffff",
+          "font_size": 64,
+          "align": "center"
+        }
+      ],
+      "image_blocks": []
+    },
+    {
+      "id": "6683aee5876c4d17acccf044a6fb93c6",
+      "button_text": "Окей...",
+      "layout": "text-top",
+      "text_blocks": [
+        {
+          "id": "b7b63a95b3df4fd5a97b86c2f59f1b50",
+          "content": "Этот вопрос может показаться глупым, на первый взгляд, но он очень важен",
+          "color": "#ffffff",
+          "font_size": 56,
+          "align": "center"
+        }
+      ],
+      "image_blocks": []
+    },
+    {
+      "id": "f90ec1be2359464981efb99c77971050",
+      "button_text": "Наверное, 365",
+      "layout": "text-top",
+      "text_blocks": [
+        {
+          "id": "eda7ea57b082466698e89df832af480b",
+          "content": "Сколько дней в году?",
+          "color": "#ffffff",
+          "font_size": 64,
+          "align": "center"
+        }
+      ],
+      "image_blocks": []
+    },
+    {
+      "id": "f0e64f17d3fd4072bfdc16878126651f",
+      "button_text": "😍",
+      "layout": "text-top",
+      "text_blocks": [
+        {
+          "id": "fe65eb61073e43c38ee8421b40f81cf0",
+          "content": "Ты права.",
+          "color": "#ffffff",
+          "font_size": 96,
+          "align": "center"
+        },
+        {
+          "id": "6ae682b733a444779a2192852fd4b7ab",
+          "content": "Именно столько дней в году мы думаем о тебе ☺️",
+          "color": "#67cb80",
+          "font_size": 48,
+          "align": "center"
+        }
+      ],
+      "image_blocks": []
+    },
+    {
+      "id": "2af031a92bf140159ebcde7c89a687c8",
+      "button_text": "На что же? ",
+      "layout": "text-top",
+      "text_blocks": [
+        {
+          "id": "8a8f59cb5caa4506b68a9af7ab04d730",
+          "content": "Мы вернемся к этому позже, а сейчас ответь вот на что...",
+          "color": "#ffffff",
+          "font_size": 52,
+          "align": "center"
+        }
+      ],
+      "image_blocks": []
+    },
+    {
+      "id": "660e0d5d5b624e53a5d852003d116d1f",
+      "button_text": "Удивите",
+      "layout": "text-top",
+      "text_blocks": [
+        {
+          "id": "6772582745eb455089a4aec4aa4ef9fc",
+          "content": "Знаешь, сколько времени мы провели с тобой за этот год?",
+          "color": "#ffffff",
+          "font_size": 52,
+          "align": "center"
+        }
+      ],
+      "image_blocks": []
+    },
+    {
+      "id": "f6af9f1f09b045c1b51fc9c774bef53a",
+      "button_text": "🙊",
+      "layout": "text-top",
+      "text_blocks": [
+        {
+          "id": "c989bb808e09413983402e2e2a90888a",
+          "content": "Достаточно, чтобы мы могли с уверенностью сказать, что ",
+          "color": "#ffffff",
+          "font_size": 52,
+          "align": "center"
+        },
+        {
+          "id": "4f16b035e95b4b5998c4266adbf4365a",
+          "content": "мы от тебя без ума ❤️",
+          "color": "#ee72e9",
+          "font_size": 80,
+          "align": "center"
+        }
+      ],
+      "image_blocks": []
+    },
+    {
+      "id": "3eb936b5ce874f9aaef337ce8b0b2992",
+      "button_text": "Продолжить",
+      "layout": "text-top",
+      "text_blocks": [
+        {
+          "id": "f90d16978c0f4ca8a64948d48f12a808",
+          "content": "просто",
+          "color": "#ffffff",
+          "font_size": 34,
+          "align": "center"
+        }
+      ],
+      "image_blocks": []
+    }
+  ]
+}

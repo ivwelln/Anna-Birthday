@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}Админка{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{{ url_for('static', path='css/admin.css') }}" />
+{% endblock %}
+
+{% block body %}
+  <main class="admin-app" id="adminApp" data-content-url="/api/content" data-upload-url="/api/uploads/images">
+    <aside class="admin-sidebar">
+      <div class="sidebar-card">
+        <p class="eyebrow">Birthday Editor</p>
+        <h1>Админка поздравления</h1>
+        <p class="sidebar-text">
+          Здесь настраиваются слайды для главной страницы: тексты, изображения, порядок и подпись кнопки.
+        </p>
+        <div class="sidebar-actions">
+          <button class="primary-button" type="button" id="addSlideButton">Добавить слайд</button>
+          <button class="secondary-button" type="button" id="saveButton">Сохранить всё</button>
+        </div>
+        <div class="hint-card">
+          <strong>Музыка</strong>
+          <span>Добавь любой аудиофайл в <code>{{ audio_dir_hint }}</code>. Сайт автоматически возьмёт первый файл.</span>
+        </div>
+        <p class="status-message" id="statusMessage">Изменения пока не сохранены.</p>
+      </div>
+    </aside>
+
+    <section class="slides-panel">
+      <div class="slides-header">
+        <div>
+          <p class="eyebrow">Слайды</p>
+          <h2>Лента поздравления</h2>
+        </div>
+        <a class="preview-link" href="/" target="_blank" rel="noreferrer">Открыть главную</a>
+      </div>
+      <div class="slides-list" id="slidesList"></div>
+      <div class="slides-empty hidden" id="slidesEmpty">
+        <p>Слайдов пока нет.</p>
+        <span>Создай первый слайд, чтобы начать собирать поздравление.</span>
+      </div>
+    </section>
+  </main>
+
+  <template id="slideTemplate">
+    <article class="slide-editor-card">
+      <header class="slide-editor-header">
+        <div>
+          <p class="slide-label"></p>
+          <h3>Настройки слайда</h3>
+        </div>
+        <div class="slide-editor-actions">
+          <button class="ghost-button" type="button" data-action="move-up">Выше</button>
+          <button class="ghost-button" type="button" data-action="move-down">Ниже</button>
+          <button class="danger-button" type="button" data-action="delete-slide">Удалить</button>
+        </div>
+      </header>
+
+      <div class="slide-editor-grid">
+        <section class="editor-section">
+          <div class="field-group">
+            <label>Текст кнопки</label>
+            <input type="text" data-field="button_text" maxlength="60" placeholder="Продолжить" />
+          </div>
+
+          <div class="field-group">
+            <label>Расположение текста и изображений</label>
+            <select data-field="layout">
+              <option value="text-top">Текст сверху, изображения снизу</option>
+              <option value="images-top">Изображения сверху, текст снизу</option>
+              <option value="text-left">Текст слева, изображения справа</option>
+              <option value="images-left">Изображения слева, текст справа</option>
+            </select>
+          </div>
+
+          <section class="nested-section">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Текст</p>
+                <h4>Блоки текста</h4>
+              </div>
+              <button class="secondary-button small-button" type="button" data-action="add-text">Добавить текст</button>
+            </div>
+            <div class="text-blocks-list" data-role="text-list"></div>
+          </section>
+
+          <section class="nested-section">
+            <div class="section-header">
+              <div>
+                <p class="section-kicker">Изображения</p>
+                <h4>Галерея слайда</h4>
+              </div>
+              <label class="upload-button">
+                <input type="file" accept="image/*" data-action="upload-images" multiple hidden />
+                <span>Загрузить фото</span>
+              </label>
+            </div>
+            <div class="image-blocks-list" data-role="image-list"></div>
+          </section>
+        </section>
+
+        <section class="preview-section">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Превью</p>
+              <h4>Как это выглядит</h4>
+            </div>
+          </div>
+          <div class="preview-frame" data-role="preview"></div>
+        </section>
+      </div>
+    </article>
+  </template>
+
+  <script src="{{ url_for('static', path='js/admin.js') }}" defer></script>
+{% endblock %}
