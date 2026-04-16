@@ -16,6 +16,7 @@ class TextBlock(BaseModel):
     color: str = Field(default="#ffffff", pattern=r"^#(?:[0-9a-fA-F]{3}){1,2}$")
     font_size: int = Field(default=34, ge=16, le=96)
     align: Literal["left", "center", "right"] = "center"
+    delay_seconds: float = Field(default=0, ge=0, le=10)
 
 
 class ImageBlock(BaseModel):

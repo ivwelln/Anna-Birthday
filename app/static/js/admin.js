@@ -381,7 +381,7 @@ function renderTextBlock(block, index) {
   fieldGroup.appendChild(textarea);
 
   const grid = document.createElement("div");
-  grid.className = "inline-grid";
+  grid.className = "inline-grid two-columns";
   grid.append(
     createNumberField("Размер текста", "font_size", block.font_size, block.id, "text", 16, 96),
     createColorField("Цвет текста", "color", block.color, block.id, "text"),
@@ -390,6 +390,7 @@ function renderTextBlock(block, index) {
       { value: "center", label: "По центру" },
       { value: "right", label: "Справа" },
     ]),
+    createNumberField("Задержка перед текстом (сек)", "delay_seconds", block.delay_seconds, block.id, "text", 0, 10, 0.1),
   );
 
   wrapper.append(toolbar, fieldGroup, grid);
@@ -453,7 +454,7 @@ function createTextField(labelText, field, value, itemId, scope, readOnly = fals
   return fieldGroup;
 }
 
-function createNumberField(labelText, field, value, itemId, scope, min, max) {
+function createNumberField(labelText, field, value, itemId, scope, min, max, step = 1) {
   const fieldGroup = document.createElement("div");
   fieldGroup.className = "field-group";
 
@@ -465,6 +466,7 @@ function createNumberField(labelText, field, value, itemId, scope, min, max) {
   input.type = "number";
   input.min = String(min);
   input.max = String(max);
+  input.step = String(step);
   input.value = String(value);
   input.dataset.field = field;
   input.dataset.scope = scope;
@@ -565,6 +567,7 @@ function parseEditorValue(field, value) {
     || field === "max_height"
     || field === "continue_delay_seconds"
     || field === "text_gap"
+    || field === "delay_seconds"
   ) {
     if (field === "font_size") {
       return clampNumber(value, 16, 96, 34);
@@ -577,6 +580,9 @@ function parseEditorValue(field, value) {
     }
     if (field === "text_gap") {
       return clampNumber(value, 0, 80, 12);
+    }
+    if (field === "delay_seconds") {
+      return clampDecimal(value, 0, 10, 0, 1);
     }
     return clampNumber(value, 80, 420, 220);
   }
@@ -602,6 +608,7 @@ function normalizeTextBlock(block) {
     color: block.color || "#ffffff",
     font_size: Number(block.font_size) || 34,
     align: block.align || "center",
+    delay_seconds: clampDecimal(block.delay_seconds, 0, 10, 0, 1),
   };
 }
 
@@ -634,6 +641,7 @@ function createDefaultTextBlock() {
     color: "#ffffff",
     font_size: 34,
     align: "center",
+    delay_seconds: 0,
   };
 }
 
@@ -650,4 +658,14 @@ function clampNumber(value, min, max, fallback) {
     return fallback;
   }
   return Math.min(max, Math.max(min, parsed));
+}
+
+function clampDecimal(value, min, max, fallback, precision = 1) {
+  const parsed = Number(value);
+  if (Number.isNaN(parsed)) {
+    return fallback;
+  }
+  const factor = 10 ** precision;
+  const clamped = Math.min(max, Math.max(min, parsed));
+  return Math.round(clamped * factor) / factor;
 }

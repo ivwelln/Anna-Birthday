@@ -55,6 +55,7 @@ def test_content_roundtrip(tmp_path: Path) -> None:
                         "color": "#ffffff",
                         "font_size": 36,
                         "align": "center",
+                        "delay_seconds": 1.5,
                     }
                 ],
                 "image_blocks": [],
@@ -70,3 +71,4 @@ def test_content_roundtrip(tmp_path: Path) -> None:
     assert get_response.json()["slides"][0]["button_text"] == "Дальше"
     assert get_response.json()["slides"][0]["continue_delay_seconds"] == 3
     assert get_response.json()["slides"][0]["text_gap"] == 24
+    assert get_response.json()["slides"][0]["text_blocks"][0]["delay_seconds"] == 1.5

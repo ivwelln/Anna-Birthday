@@ -98,7 +98,7 @@ function buildSlideFrame(slide) {
 
   const textStack = document.createElement("div");
   textStack.className = "text-stack";
-  textStack.style.gap = `${resolveTextGap(slide.text_gap)}px`;
+  textStack.style.setProperty("--text-gap", `${resolveTextGap(slide.text_gap)}px`);
 
   const imageStack = document.createElement("div");
   imageStack.className = "image-stack";
@@ -138,7 +138,12 @@ function createPreparedTextLine(block) {
 
   root.append(reserve, content);
 
-  return { root, content, text: block.content.trim() };
+  return {
+    root,
+    content,
+    text: block.content.trim(),
+    delaySeconds: resolveTextDelay(block.delay_seconds),
+  };
 }
 
 async function typeTextBlocks(textLines, token, getActiveToken) {
@@ -150,6 +155,13 @@ async function typeTextBlocks(textLines, token, getActiveToken) {
   for (const line of textLines) {
     if (token !== getActiveToken()) {
       return;
+    }
+
+    if (line.delaySeconds > 0) {
+      await delay(line.delaySeconds * 1000);
+      if (token !== getActiveToken()) {
+        return;
+      }
     }
 
     line.root.classList.add("visible", "typing");
@@ -340,6 +352,14 @@ function resolveTextGap(value) {
     return 12;
   }
   return Math.min(80, Math.max(0, parsed));
+}
+
+function resolveTextDelay(value) {
+  const parsed = Number(value);
+  if (Number.isNaN(parsed)) {
+    return 0;
+  }
+  return Math.min(10, Math.max(0, parsed));
 }
 
 function isEmojiOnlyLabel(label) {
