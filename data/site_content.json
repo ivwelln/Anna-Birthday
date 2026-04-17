@@ -1,6 +1,23 @@
 {
   "slides": [
     {
+      "id": "a120b8466c6840c3bce67a192a4d30f3",
+      "button_text": "Продолжить",
+      "continue_delay_seconds": 2,
+      "layout": "images-top",
+      "text_gap": 12,
+      "text_blocks": [],
+      "image_blocks": [
+        {
+          "id": "5fa3473532534cb2a4454c42c3292ee6",
+          "src": "/static/uploads/1047c8fe59d64311b61fbc61797558ee.jpg",
+          "alt": "IMG_1762",
+          "width_percent": 100,
+          "max_height": 420
+        }
+      ]
+    },
+    {
       "id": "519aae2cd7bb4e8284f05702a94d296b",
       "button_text": "Ну привет.. ",
       "continue_delay_seconds": 1,
@@ -12,14 +29,16 @@
           "content": "Привет, Аня",
           "color": "#e392fe",
           "font_size": 80,
-          "align": "center"
+          "align": "center",
+          "delay_seconds": 1.0
         },
         {
           "id": "599155ceafed474f9a483afd1f7f0203",
           "content": "У нас для тебя кое-что есть... ",
           "color": "#ffffff",
           "font_size": 50,
-          "align": "center"
+          "align": "center",
+          "delay_seconds": 0.0
         }
       ],
       "image_blocks": []
@@ -29,42 +48,47 @@
       "button_text": "Удивите",
       "continue_delay_seconds": 3,
       "layout": "text-top",
-      "text_gap": 1,
+      "text_gap": 4,
       "text_blocks": [
         {
           "id": "3bb18fe257d64115845defc1a6147edc",
           "content": "Дело в том, ",
           "color": "#ffffff",
-          "font_size": 32,
-          "align": "center"
+          "font_size": 50,
+          "align": "center",
+          "delay_seconds": 0.0
         },
         {
           "id": "93373a8a292540ac976c00bce562acba",
           "content": "Что мы тебя очень любим..",
           "color": "#ffffff",
-          "font_size": 32,
-          "align": "center"
+          "font_size": 50,
+          "align": "center",
+          "delay_seconds": 0.0
         },
         {
           "id": "fd30006776ea404a83480704dbadd73c",
           "content": "Но не знаем, ",
           "color": "#ffffff",
-          "font_size": 32,
-          "align": "center"
+          "font_size": 50,
+          "align": "center",
+          "delay_seconds": 0.0
         },
         {
           "id": "4b15f79e5fb4468e85de1a316bad0845",
-          "content": "как тебе это правильно сказать.",
+          "content": "Как тебе это правильно сказать.",
           "color": "#ffffff",
-          "font_size": 32,
-          "align": "center"
+          "font_size": 50,
+          "align": "center",
+          "delay_seconds": 0.0
         },
         {
           "id": "7585b257758745d8af13a2eaa2b981af",
-          "content": "Но мы можем показать",
+          "content": "Но мы можем показать 😻",
           "color": "#ffb3d4",
-          "font_size": 32,
-          "align": "center"
+          "font_size": 50,
+          "align": "center",
+          "delay_seconds": 0.7
         }
       ],
       "image_blocks": []
@@ -81,7 +105,8 @@
           "content": "Сначала, позволь задать пару вопросов",
           "color": "#ffffff",
           "font_size": 64,
-          "align": "center"
+          "align": "center",
+          "delay_seconds": 0.0
         }
       ],
       "image_blocks": []
@@ -95,10 +120,11 @@
       "text_blocks": [
         {
           "id": "b7b63a95b3df4fd5a97b86c2f59f1b50",
-          "content": "Этот вопрос может показаться глупым, на первый взгляд, но он очень важен",
+          "content": "Этот вопрос может показаться странным, на первый взгляд, но он очень важен",
           "color": "#ffffff",
           "font_size": 56,
-          "align": "center"
+          "align": "center",
+          "delay_seconds": 0.0
         }
       ],
       "image_blocks": []
@@ -115,7 +141,8 @@
           "content": "Сколько дней в году?",
           "color": "#ffffff",
           "font_size": 64,
-          "align": "center"
+          "align": "center",
+          "delay_seconds": 0.0
         }
       ],
       "image_blocks": []
@@ -129,17 +156,45 @@
       "text_blocks": [
         {
           "id": "fe65eb61073e43c38ee8421b40f81cf0",
-          "content": "Ты права.",
+          "content": "Ты права",
           "color": "#ffffff",
           "font_size": 96,
-          "align": "center"
+          "align": "center",
+          "delay_seconds": 0.0
         },
         {
           "id": "6ae682b733a444779a2192852fd4b7ab",
           "content": "Именно столько дней в году мы думаем о тебе ☺️",
           "color": "#67cb80",
           "font_size": 48,
-          "align": "center"
+          "align": "center",
+          "delay_seconds": 0.0
+        }
+      ],
+      "image_blocks": []
+    },
+    {
+      "id": "3eb936b5ce874f9aaef337ce8b0b2992",
+      "button_text": "Продолжить",
+      "continue_delay_seconds": 2,
+      "layout": "text-top",
+      "text_gap": 12,
+      "text_blocks": [
+        {
+          "id": "f90d16978c0f4ca8a64948d48f12a808",
+          "content": "За последние 365 дней ты посетила нашу фотоплёнку",
+          "color": "#ffffff",
+          "font_size": 50,
+          "align": "center",
+          "delay_seconds": 0.0
+        },
+        {
+          "id": "cbf213693f234ff9a23985c1d8864196",
+          "content": "179 раз",
+          "color": "#e63b7a",
+          "font_size": 70,
+          "align": "center",
+          "delay_seconds": 1.5
         }
       ],
       "image_blocks": []
@@ -156,7 +211,8 @@
           "content": "Мы вернемся к этому позже, а сейчас ответь вот на что...",
           "color": "#ffffff",
           "font_size": 52,
-          "align": "center"
+          "align": "center",
+          "delay_seconds": 0.0
         }
       ],
       "image_blocks": []
@@ -173,7 +229,8 @@
           "content": "Знаешь, сколько времени мы провели с тобой за этот год?",
           "color": "#ffffff",
           "font_size": 52,
-          "align": "center"
+          "align": "center",
+          "delay_seconds": 0.0
         }
       ],
       "image_blocks": []
@@ -190,31 +247,16 @@
           "content": "Достаточно, чтобы мы могли с уверенностью сказать, что ",
           "color": "#ffffff",
           "font_size": 52,
-          "align": "center"
+          "align": "center",
+          "delay_seconds": 0.0
         },
         {
           "id": "4f16b035e95b4b5998c4266adbf4365a",
           "content": "мы от тебя без ума ❤️",
           "color": "#ee72e9",
           "font_size": 80,
-          "align": "center"
-        }
-      ],
-      "image_blocks": []
-    },
-    {
-      "id": "3eb936b5ce874f9aaef337ce8b0b2992",
-      "button_text": "Продолжить",
-      "continue_delay_seconds": 2,
-      "layout": "text-top",
-      "text_gap": 12,
-      "text_blocks": [
-        {
-          "id": "f90d16978c0f4ca8a64948d48f12a808",
-          "content": "Скоро",
-          "color": "#ffffff",
-          "font_size": 34,
-          "align": "center"
+          "align": "center",
+          "delay_seconds": 0.0
         }
       ],
       "image_blocks": []
